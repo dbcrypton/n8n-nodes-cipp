@@ -5,16 +5,18 @@ import type {
 	INodeTypeDescription,
 } from 'n8n-workflow';
 import { NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import {N8NPropertiesBuilder, N8NPropertiesBuilderConfig} from '@devlikeapro/n8n-openapi-node';
+import * as doc from './openapi.json'; // <=== Your OpenAPI v3 spec
 
-export class ExampleNode implements INodeType {
+export class CIPPNode implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Example Node',
-		name: 'exampleNode',
+		displayName: 'CIPP Node',
+		name: 'CIPPNode',
 		group: ['transform'],
 		version: 1,
-		description: 'Basic Example Node',
+		description: 'CIPP Node',
 		defaults: {
-			name: 'Example Node',
+			name: 'CIPP Node',
 		},
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
@@ -22,12 +24,12 @@ export class ExampleNode implements INodeType {
 			// Node properties which the user gets displayed and
 			// can change on the node.
 			{
-				displayName: 'My String',
-				name: 'myString',
+				displayName: 'CIPP',
+				name: 'CIPP',
 				type: 'string',
 				default: '',
-				placeholder: 'Placeholder value',
-				description: 'The description text',
+				placeholder: 'CIPP Node',
+				description: 'CIPP',
 			},
 		],
 	};
